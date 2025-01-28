@@ -1,0 +1,66 @@
+﻿@page "/Trainers"
+@{
+    ViewData["Title"] = "Trenerzy";
+}
+
+<h1>Trenerzy</h1>
+
+<div class="trainers-list">
+    <div class="trainer-card">
+        <h3>Bartłomiej Rydzak</h3>
+        <p><strong>Specjalność:</strong> Kickboxing</p>
+        <p>Doświadczony trener kickboxingu.</p>
+    </div>
+    <div class="trainer-card">
+        <h3>Khabib Nurmagomedov</h3>
+        <p><strong>Specjalność:</strong> MMA</p>
+        <p>Niepokonany mistrz MMA, który przeszedł na emeryturę.</p>
+    </div>
+
+    <div class="trainer-card">
+        <h3>
+            Szarabutdin Magomiedow
+        </h3>
+        <p><strong>Specjalność:</strong> MMA</p>
+        <p>Doświadczony trener MMA.</p>
+    </div>
+
+    <div class="trainer-card">
+        <h3>Islam Makhachev</h3>
+        <p><strong>Specjalność:</strong> MMA</p>
+        <p>MMA fighter i aktualny mistrz.</p>
+    </div>
+
+    <div class="trainer-card">
+        <h3>Alex Pereira</h3>
+        <p><strong>Specjalność:</strong> Kickboxing/MMA</p>
+        <p>Były mistrz kickboxingu i zawodnik MMA.</p>
+    </div>
+
+</div>
+
+<style>
+    .trainers-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .trainer-card {
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 8px;
+        background-color: #f4f4f4;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+        .trainer-card h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .trainer-card p {
+            margin: 10px 0;
+        }
+</style>

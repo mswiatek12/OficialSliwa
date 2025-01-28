@@ -1,0 +1,124 @@
+ul {
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.bullet {
+    list-style-type: none;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background: linear-gradient(to bottom, #212121, #424242);
+    color: white;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+}
+
+    .sidebar .nav {
+        padding-left: 0;
+        margin: auto;
+        list-style-type: none;
+    }
+
+    .sidebar .navbar-brand {
+        color: rgb(0, 148, 255);
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding-left: 20px;
+        margin-bottom: 10px;
+        text-decoration: none;
+    }
+
+        .sidebar .navbar-brand:hover {
+            text-decoration: none;
+            color: rgb(0, 114, 196);
+        }
+
+    .sidebar .nav-link {
+        color: #a1a1a1;
+        font-weight: bold;
+        font-size: 1.1rem;
+        padding: 15px;
+        margin: 8px 0;
+        text-decoration: none;
+        display: block;
+        transition: background-color 0.3s ease;
+        border-radius: 9px;
+    }
+
+        .sidebar .nav-link:hover {
+            background-color: #616161;
+            color: #a1a1a1;
+            border-radius: 9px;
+        }
+
+        .sidebar .nav-link.active {
+            background-color: #388e3c;
+            color: #a1a1a1;
+        }
+
+.main-content {
+    margin-left: 250px;
+    padding: 15px;
+    font-family: 'Arial', sans-serif;
+}
+
+    .main-content header {
+        padding: 20px 0;
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+    }
+
+footer {
+    height: 24px;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-position: 0% 0%;
+    position: fixed;
+    bottom: 0pt;
+    left: 0pt;
+}
+
+    footer a {
+        color: #388e3c;
+        text-decoration: none;
+    }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+        padding-top: 10px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .sidebar .navbar-brand {
+        font-size: 1.2rem;
+        padding-left: 10px;
+    }
+
+    .sidebar .nav-link {
+        padding: 8px 15px;
+    }
+
+    footer {
+        font-size: 0.8rem;
+    }
+}

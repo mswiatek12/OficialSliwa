@@ -1,0 +1,33 @@
+﻿@page
+@model OficialSliwa.Pages.Account.AktywneCzlonkostwaModel
+
+<h1>Aktywne Członkostwa</h1>
+
+@if (Model.AktywneCzlonkostwa != null && Model.AktywneCzlonkostwa.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Membership ID</th>
+                <th>Imię i Nazwisko</th>
+                <th>Data Rozpoczęcia</th>
+                <th>Data Zakończenia</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var membership in Model.AktywneCzlonkostwa)
+            {
+                <tr>
+                    <td>@membership.CzlonkostwoId</td>
+                    <td>@membership.Imie</td>
+                    <td>@membership.StartData.ToShortDateString()</td>
+                    <td>@membership.KoniecData.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Brak aktywnych członkostw.</p>
+}

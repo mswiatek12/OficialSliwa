@@ -1,0 +1,118 @@
+﻿/* Styling for the register page */
+.main-content {
+    margin-left: 250px;
+    padding: 30px;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #3498db, #2ecc71);
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.card-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #424242;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px 10px 0 0;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.form-group label {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 12px;
+    font-size: 1rem;
+    width: 100%;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+}
+
+    .form-control:focus {
+        border-color: #388e3c;
+        box-shadow: 0 0 8px rgba(56, 142, 60, 0.2);
+    }
+
+.btn-primary {
+    background-color: #388e3c;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+}
+
+    .btn-primary:hover {
+        background-color: #2e7d32;
+    }
+
+.text-danger {
+    font-size: 0.9rem;
+    color: #e53935;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #212121;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+    footer a {
+        color: #388e3c;
+        text-decoration: none;
+    }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .card {
+        margin-top: 15px;
+    }
+
+    .form-control {
+        padding: 10px;
+    }
+
+    .btn-primary {
+        padding: 10px;
+    }
+
+    footer {
+        font-size: 0.8rem;
+    }
+}

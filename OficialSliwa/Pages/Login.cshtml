@@ -1,0 +1,38 @@
+﻿@page   "/Login"
+@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+<link href="/css/login.css" rel="stylesheet" />
+
+<div class="main-content">
+    <header>Login</header>
+    <div class="card">
+        <div class="card-header">
+            Log in to your account
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div class="form-group">
+                    <label asp-for="Input.Email"></label>
+                    <input asp-for="Input.Email" class="form-control" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Password"></label>
+                    <input asp-for="Input.Password" type="password" class="form-control" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.RememberMe"></label>
+                    <input asp-for="Input.RememberMe" type="checkbox" />
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

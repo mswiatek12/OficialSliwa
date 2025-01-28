@@ -1,0 +1,46 @@
+﻿@page "/account/{UserId}/userstatistics/edit"
+@model OficialSliwa.Pages.Account.UserStatisticsEditModel
+@{
+    ViewData["Title"] = "Edytuj Statystyki Użytkownika";
+}
+
+<h1>Edytuj Statystyki użytkownika</h1>
+
+<div class="user-info">
+    <h2>Dane użytkownika</h2>
+    <p><strong>Imię:</strong> @Model.User.Imie</p>
+    <p><strong>Nazwisko:</strong> @Model.User.Nazwisko</p>
+    <p><strong>Email:</strong> @Model.User.Email</p>
+</div>
+
+<h2>Edytuj statystyki</h2>
+<form method="post">
+    <div class="form-group">
+        <label for="Walki">Liczba walk</label>
+        <input type="number" id="Walki" name="Walki" class="form-control" asp-for="UserStatistics.Walki" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Wygrane">Wygrane</label>
+        <input type="number" id="Wygrane" name="Wygrane" class="form-control" asp-for="UserStatistics.Wygrane" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Przegrane">Przegrane</label>
+        <input type="number" id="Przegrane" name="Przegrane" class="form-control" asp-for="UserStatistics.Przegrane" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Osiągnięcia">Osiągnięcia</label>
+        <input type="text" id="Osiągnięcia" name="Osiągnięcia" class="form-control" asp-for="UserStatistics.Osiągnięcia" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
+</form>
+
+@if (!ModelState.IsValid)
+{
+    <div class="alert alert-danger mt-2">
+        <strong>Błąd:</strong> Wystąpiły problemy przy próbie zapisania zmian.
+    </div>
+}

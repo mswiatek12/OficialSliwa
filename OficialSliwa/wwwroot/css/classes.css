@@ -1,0 +1,60 @@
+﻿/* Apply a gradient background to the entire table */
+* {
+
+}
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    background: linear-gradient(to right, #6a11cb, #2575fc); /* Gradient from purple to blue */
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+    /* Style the table header */
+    .table th {
+        color: black;
+        background-color: #ffffff;
+        color: #333;
+        padding: 12px;
+        font-weight: bold;
+        text-align: center;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    /* Style the table rows and cells */
+    .table th, .table td {
+        color: black;
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: center;
+        font-size: 14px;
+        color: #ffffff;
+    }
+
+    /* Zebra striping effect for alternating rows */
+    .table tr:nth-child(even) {
+        background-color: rgba(255, 255, 255, 0.1); /* Light transparent white */
+    }
+
+    /* Hover effect for rows */
+    .table tr:hover {
+        background-color: rgba(0, 0, 0, 0.1); /* Subtle dark effect when hovering over rows */
+    }
+
+    /* Style the table cells */
+    .table td {
+        color: black;
+        border: 1px solid #ddd;
+        padding: 10px;
+        font-size: 14px;
+        color: #ffffff;
+        transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    }
+
+    /* Add a rounded bottom border for the table */
+    .table tr:last-child td {
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }

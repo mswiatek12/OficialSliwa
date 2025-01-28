@@ -1,0 +1,52 @@
+﻿@page "/Classes"
+@model OficialSliwa.Pages.ClassesModel
+
+@{
+    ViewData["Title"] = "Grafik";
+}
+<link href="~/css/classes.css" rel="stylesheet" />
+
+<h1>Grafik</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th style="color: black">Godzina</th>
+            <th style ="color: black">Poniedziałek</th>
+            <th style ="color: black">Wtorek</th>
+            <th style ="color: black">Środa</th>
+            <th style ="color: black">Czwartek</th>
+            <th style ="color: black">Piątek</th>
+            <th style ="color: black">Sobota</th>
+            <th style ="color: black">Niedziela</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (var hour = 8; hour <= 20; hour++)
+        {
+            <tr>
+                <td>@($"{hour}:00")</td>
+                @for (var day = 0; day < 7; day++)
+                {
+                    var sessionsForThisTime = Model.Schedule.ContainsKey((DayOfWeek)day)
+                    ? Model.Schedule[(DayOfWeek)day].Where(s => s.StartGodzina == hour).ToList()
+                    : new List<Sesja>();
+
+                    <td>
+                        @if (sessionsForThisTime.Any())
+                        {
+                            @foreach (var session in sessionsForThisTime)
+                            {
+                                <div>@session.SesjaNazwa</div>
+                            }
+                        }
+                        else
+                        {
+                            <div>—</div>
+                        }
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

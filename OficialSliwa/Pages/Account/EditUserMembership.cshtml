@@ -1,0 +1,30 @@
+﻿@page "/Account/{MembershipId}/EditUserMembership"
+@model OficialSliwa.Pages.Account.EditUserMembershipModel
+
+<h1>Edytuj Członkostwo</h1>
+
+<div>
+    <form method="post" asp-page-handler="EditMembership">
+        <input type="hidden" name="CzlonkostwoId" value="@Model.CzlonkostwoId" />
+        <label for="StartData">Data Rozpoczęcia (UTC)</label>
+        <input type="datetime-local" id="StartData" name="StartData"
+               value="@Model.StartData.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm")" required />
+
+        <label for="KoniecData">Data Zakończenia (UTC)</label>
+        <input type="datetime-local" id="KoniecData" name="KoniecData"
+               value="@Model.KoniecData.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm")" required />
+
+        <button type="submit">Zaktualizuj Członkostwo</button>
+    </form>
+
+    <!-- Error message display -->
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div style="color: red;">
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <p>@error.ErrorMessage</p>
+            }
+        </div>
+    }
+</div>

@@ -1,0 +1,46 @@
+﻿@page "/Account/{UserId}/UserMembership"
+@model OficialSliwa.Pages.Account.UserMembershipModel
+
+<h1>Członkostwo Użytkownika</h1>
+
+<div>
+    <h3>Informacje o Użytkowniku</h3>
+    <p><strong>Użytkownik:</strong> @Model.User?.Imie @Model.User?.Nazwisko</p>
+    <p><strong>Email:</strong> @Model.User?.Email</p>
+
+    <h3>Członkostwo</h3>
+    @if (Model.UserMembership != null)
+    {
+        <p><strong>Data Rozpoczęcia:</strong> @Model.UserMembership.StartData.ToShortDateString()</p>
+        <p><strong>Data Zakończenia:</strong> @Model.UserMembership.KoniecData.ToShortDateString()</p>
+        @if (!Model.HasActiveMembership)
+        {
+            <p>To członkostwo wygasło lub zostało zakończone.</p>
+        }
+
+        <a href="/Account/@Model.UserMembership.CzlonkostwoId/EditUserMembership">
+            <button type="button">Edytuj Członkostwo</button>
+        </a>
+    }
+    else
+    {
+        <p>Użytkownik nie ma członkostwa.</p>
+    }
+
+    @if (!Model.HasActiveMembership)
+    {
+        <h3>Dodaj Członkostwo</h3>
+        <form method="post">
+            <label for="MembershipType">Typ Członkostwa</label>
+            <input type="text" id="MembershipType" name="MembershipType" required />
+
+            <label for="StartDate">Data Rozpoczęcia</label>
+            <input type="date" id="StartDate" name="StartDate" value="@Model.StartDate.ToString("yyyy-MM-dd")" required />
+
+            <label for="EndDate">Data Zakończenia</label>
+            <input type="date" id="EndDate" name="EndDate" required />
+
+            <button type="submit">Dodaj Członkostwo</button>
+        </form>
+    }
+</div>

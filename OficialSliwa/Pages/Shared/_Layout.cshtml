@@ -1,0 +1,79 @@
+﻿@{
+    var isAuthenticated = User.Identity.IsAuthenticated;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - SliwaBox</title>
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="sidebar">
+        <a class="navbar-brand" asp-area="" asp-page="/Index">Śliwa GYM</a>
+        <ul class="bullet">
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-page="/Index">Strona Główna</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-page="/AboutUs">O nas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-page="/Classes">Grafik</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-page="/ClubMembership">Członkostwo</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-page="/Trainers">Trenerzy</a>
+            </li>
+            @if (isAuthenticated)
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-page="/Account">Konto</a>
+                </li>
+                <li class="nav-item">
+                    <form method="post" asp-page="/Login" asp-route-handler="Logout">
+                        <button type="submit" class="nav-link" style="border: none; background: none; cursor: pointer;">
+                            Wyloguj
+                        </button>
+                    </form>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-page="/Login">Logowanie</a>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+        </header>
+
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - sliwaBoxV2 - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

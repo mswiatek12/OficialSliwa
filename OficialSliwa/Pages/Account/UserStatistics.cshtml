@@ -1,0 +1,52 @@
+﻿@page "/account/{UserId}/userstatistics"
+@model OficialSliwa.Pages.Account.UserStatisticsModel
+
+@{
+    ViewData["Title"] = "Statystyki użytkownika";
+}
+<link href="~/css/userstatistics.css" rel="stylesheet" />
+
+<h1>Statystyki użytkownika</h1>
+
+<div class="user-info">
+    <h2>Dane użytkownika</h2>
+    <p><strong>Imię:</strong> @Model.User.Imie</p>
+    <p><strong>Nazwisko:</strong> @Model.User.Nazwisko</p>
+    <p><strong>Email:</strong> @Model.User.Email</p>
+</div>
+
+<div class="user-stats">
+    <h2>Statystyki</h2>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Liczba walk</th>
+                <th>Wygrane</th>
+                <th>Przegrane</th>
+                <th>Osiągnięcia</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.UserStatistics != null)
+            {
+                <tr>
+                    <td>@Model.UserStatistics.Walki</td>
+                    <td>@Model.UserStatistics.Wygrane</td>
+                    <td>@Model.UserStatistics.Przegrane</td>
+                    <td>@Model.UserStatistics.Osiągnięcia</td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4" class="text-center">Brak dostępnych statystyk.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <a href="/account/@Model.UserStatistics.UserId/userstatistics/edit" class="btn btn-primary">Edytuj statystyki</a>
+</div>
+

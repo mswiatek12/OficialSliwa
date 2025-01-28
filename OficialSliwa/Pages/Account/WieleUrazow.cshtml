@@ -1,0 +1,29 @@
+﻿@page
+@model OficialSliwa.Pages.Account.WieleUrazowModelPage
+@{
+    ViewData["Title"] = "Zawodnicy z wieloma kontuzjami";
+}
+
+<h1>Statystyki kontuzji</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>UserId</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Total Injuries</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.UsersWithMultipleInjuries)
+        {
+            <tr>
+                <td>@user.UserId</td>
+                <td>@user.Imie</td>
+                <td>@user.Nazwisko</td>
+                <td>@user.LiczbaUrazow</td>
+            </tr>
+        }
+    </tbody>
+</table>

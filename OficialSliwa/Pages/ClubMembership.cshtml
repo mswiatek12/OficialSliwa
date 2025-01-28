@@ -1,0 +1,53 @@
+﻿@page "/ClubMembership"
+@model OficialSliwa.Pages.ClubMembershipModel
+
+@{
+    ViewData["Title"] = "Członkostwo Klubu";
+}
+
+<h1>Członkostwo Klubu</h1>
+
+<p>Wybierz jedną z poniższych ofert członkostwa dla naszej siłowni bokserskiej.</p>
+
+<link href="~/css/clubmembership.css" rel="stylesheet" />
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h3>Miesięczne Członkostwo</h3>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Dostęp do wszystkich zajęć grupowych i siłowni.</p>
+                <p class="card-text"><strong>Cena: 100 PLN</strong></p>
+                <a asp-page="/Register" class="btn btn-primary">Wybierz</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h3>Trzymiesięczne Członkostwo</h3>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Zniżka w porównaniu do miesięcznej oferty. Dostęp do wszystkich usług.</p>
+                <p class="card-text"><strong>Cena: 270 PLN</strong></p>
+                <a asp-page="/Register" class="btn btn-primary">Wybierz</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h3>Roczne Członkostwo</h3>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Najlepsza oferta! Zaoszczędź jeszcze więcej.</p>
+                <p class="card-text"><strong>Cena: 1000 PLN</strong></p>
+                <a asp-page="/Register" class="btn btn-primary">Wybierz</a>
+            </div>
+        </div>
+    </div>
+</div>

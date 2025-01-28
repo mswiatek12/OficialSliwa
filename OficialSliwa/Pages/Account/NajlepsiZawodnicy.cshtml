@@ -1,0 +1,109 @@
+﻿@page
+@model OficialSliwa.Pages.Statistics.WinrateModel
+@{
+    ViewData["Title"] = "Najlepsi zawodnicy";
+}
+
+<h1>User Win Rates</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Imie</th>
+            <th>Nazwisko</th>
+            <th>Wygrane</th>
+            <th>Walki</th>
+            <th>Win Rate (%)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.NajlepsiZawodnicy != null && Model.NajlepsiZawodnicy.Any())
+        {
+            foreach (var winrate in Model.NajlepsiZawodnicy)
+            {
+                <tr>
+                    <td>@winrate.UserId</td>
+                    <td>@winrate.Imie</td>
+                    <td>@winrate.Nazwisko</td>
+                    <td>@winrate.Wygrane</td>
+                    <td>@winrate.Walki</td>
+                    <td>@winrate.WygraneProcent.ToString("F2")</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="6" class="text-center">No win rate data available.</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<style>
+    /* Podstawowe style dla całej strony */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #f8f9fa;
+    }
+
+    /* Stylizacja tabeli */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    /* Styl dla nagłówków tabeli */
+    th {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px;
+        text-align: left;
+        font-weight: bold;
+        border: 1px solid #dee2e6;
+    }
+
+    /* Styl dla komórek tabeli */
+    td {
+        background-color: #fff;
+        padding: 10px;
+        border: 1px solid #dee2e6;
+        text-align: left;
+    }
+
+    /* Kolory dla poszczególnych wierszy */
+    tr:nth-child(even) td {
+        background-color: #f2f2f2;
+    }
+
+    /* Styl dla komórki z procentem wygranych */
+    td:last-child {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    /* Styl dla nagłówka strony */
+    h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+    }
+
+    /* Styl dla komunikatu o braku danych */
+    .text-center {
+        font-size: 16px;
+        color: #6c757d;
+        padding: 15px;
+        text-align: center;
+        background-color: #f8d7da;
+        border-radius: 5px;
+    }
+
+    /* Styl dla komórek, które zawierają dane procentowe */
+    td:last-child {
+        color: #007bff;
+        font-weight: bold;
+    }
+</style>

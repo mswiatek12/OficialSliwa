@@ -1,0 +1,88 @@
+﻿@page "/account/{UserId}/userattendance"
+@model OficialSliwa.Pages.UserAttendanceModel
+
+@{
+    ViewData["Title"] = "Rejestracja obecności";
+}
+
+<h2>Rejestracja obecności na sesji</h2>
+
+<div class="alert alert-info">
+    Zarejestruj obecność na sesji zajęć.
+</div>
+
+<h3>Twoje zapisane sesje:</h3>
+@if (Model.ZapisaneSesje != null && Model.ZapisaneSesje.Any())
+{
+    <ul class="list-group">
+        @foreach (var sesja in Model.ZapisaneSesje)
+        {
+            <li class="list-group-item">
+                <strong>@sesja.SesjaNazwa</strong> - @sesja.SesjaData.ToString("dd/MM/yyyy") @sesja.StartGodzina:00
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>Nie jesteś zapisany na żadną sesję.</p>
+}
+
+<!-- Formularz rejestracji -->
+<form method="post">
+    <div class="form-group">
+        <label for="SesjaId">Wybierz sesję:</label>
+        <select id="SesjaId" name="SesjaId" class="form-control" required>
+            @if (Model.Sesje != null && Model.Sesje.Any())
+            {
+                @foreach (var sesja in Model.Sesje)
+                {
+                    <option value="@sesja.SesjaId">@sesja.SesjaNazwa - @sesja.SesjaData.ToString("dd/MM/yyyy") @sesja.StartGodzina:00</option>
+                }
+            }
+            else
+            {
+                <p>Brak dostępnych sesji.</p>
+            }
+        </select>
+    </div>
+
+    <input type="hidden" name="UserId" value="@Model.UserId" />
+
+    <button type="submit" class="btn btn-primary">Zarejestruj obecność</button>
+</form>
+
+<br>
+<a href="/Account/Participants">Powrót</a>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .alert-info {
+        background-color: #d9edf7;
+        border-color: #bce8f1;
+        color: #31708f;
+    }
+
+    h3 {
+        margin-top: 20px;
+    }
+
+    .list-group {
+        margin-top: 10px;
+    }
+
+    .list-group-item {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        margin-bottom: 5px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        padding: 10px 20px;
+    }
+
+</style>

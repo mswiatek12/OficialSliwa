@@ -1,0 +1,68 @@
+﻿@page "/account/raporty"
+@model OficialSliwa.Pages.Account.RaportyModel
+
+<link href="~/css/raporty.css" rel="stylesheet" />
+
+<h1 class="page-title">Raporty</h1>
+
+<div class="report-links">
+    <ul class="report-list">
+        <li><a asp-page="/Account/AktywneCzlonkostwa" class="report-item">Aktywne Członkostwa</a></li>
+        <li><a asp-page="/Account/AktywneUrazy" class="report-item">Aktywne Urazy</a></li>
+        <li><a asp-page="/Account/NajaktywniejsiZawodnicy" class="report-item">Najaktywniejsi zawodnicy</a></li>
+        <li><a asp-page="/Account/WieleUrazow" class="report-item">Osoby z największą liczbą kontuzji</a></li>
+        <li><a asp-page="/Account/NajlepsiZawodnicy" class="report-item">Najlepsi Zawodnicy</a></li>
+    </ul>
+</div>
+
+<style>
+    /* Overall Page Title */
+    .page-title {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 40px;
+        color: #333;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    /* Centering the Report Links */
+    .report-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+    }
+
+    /* Styling the list of reports */
+    .report-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px; /* Spacing between items */
+    }
+
+    /* Styling individual report items */
+    .report-item {
+        display: block;
+        padding: 15px 30px;
+        background-color: #4CAF50; /* Green background */
+        color: white;
+        text-decoration: none;
+        font-size: 1.25rem;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        width: 250px;
+        text-align: center;
+    }
+
+    /* Hover effects on report items */
+    .report-item:hover {
+        background-color: #45a049; /* Darker green */
+        transform: translateY(-5px); /* Slight lift effect */
+    }
+</style>

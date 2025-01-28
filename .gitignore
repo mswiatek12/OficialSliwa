@@ -1,0 +1,18 @@
+**bin**
+**obj**
+**Properties**
+**appsettings.Development**
+# Ignore Visual Studio files
+.vs/
+.idea/
+.vscode/
+
+# Ignore build results
+bin/
+obj/
+
+# Ignore user-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs

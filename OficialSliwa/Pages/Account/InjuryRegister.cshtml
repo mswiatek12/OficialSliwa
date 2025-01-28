@@ -1,0 +1,125 @@
+﻿@page "/Account/{UserId}/InjuryRegister"
+@model OficialSliwa.Pages.Account.InjuryRegisterModel
+@using OficialSliwa.dbContext
+
+@{
+    ViewData["Title"] = "Rejestr Urazów";
+}
+
+<h1>Rejestr Urazów</h1>
+
+<div class="user-info">
+    <h2>Dane użytkownika</h2>
+    <p><strong>Imię:</strong> @Model.User.Imie</p>
+    <p><strong>Nazwisko:</strong> @Model.User.Nazwisko</p>
+    <p><strong>Email:</strong> @Model.User.Email</p>
+</div>
+
+<div class="injury-records">
+    <h2>Lista Urazów</h2>
+
+    @if (Model.Injuries != null && Model.Injuries.Any())
+    {
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Data Urazu</th>
+                    <th>Opis</th>
+                    <th>Stan</th>
+                    <th>Opcje</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var injury in Model.Injuries)
+                {
+                    <tr>
+                        <td>@injury.UrazData.ToLocalTime().ToShortDateString()</td>
+                        <td>@injury.Opis</td>
+                        <td>@injury.Status.ToString()</td>
+                        <td>
+                            <a href="/Account/InjuryEdit/@injury.UrazId">Edytuj</a> |
+                            <a href="/Account/InjuryDelete/@injury.UrazId">Usuń</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Brak urazów do wyświetlenia.</p>
+    }
+</div>
+
+<div class="add-injury">
+    <h2>Dodaj Uraz</h2>
+    <form method="post">
+        <div>
+            <label for="injuryDate">Data Urazu:</label>
+            <input type="date" id="injuryDate" name="InjuryDate" required />
+        </div>
+        <div>
+            <label for="description">Opis:</label>
+            <textarea id="description" name="Description" required></textarea>
+        </div>
+        <div>
+            <label for="status">Stan:</label>
+            <select id="status" name="Status">
+                <option value="true">Aktywna</option>
+                <option value="false">Wyleczona</option>
+            </select>
+        </div>
+        <button type="submit">Dodaj Uraz</button>
+    </form>
+</div>
+
+<style>
+    .user-info,
+    .injury-records,
+    .add-injury {
+        margin-bottom: 30px;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .table th, .table td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .table th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+
+        .table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input, textarea, select {
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    button {
+        padding:

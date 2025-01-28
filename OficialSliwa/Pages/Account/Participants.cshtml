@@ -1,0 +1,93 @@
+﻿@page "/Account/Participants"
+@model OficialSliwa.Pages.Account.ParticipantsModel
+
+@{
+    ViewData["Title"] = "Lista Członków";
+}
+
+<h2 class="page-title">Lista Członków</h2>
+
+<div class="participants-container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Email</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Participants != null && Model.Participants.Any())
+            {
+                @foreach (var participant in Model.Participants)
+                {
+                    <tr>
+                        <td>@participant.Imie</td>
+                        <td>@participant.Nazwisko</td>
+                        <td>@participant.Email</td>
+                        <td>
+                            <a href="/Account/@participant.UserId/UserStatistics">Statystyki</a><br>
+                            <a href="/Account/@participant.UserId/InjuryRegister">Rejestr urazów</a><br>
+                            <a href="/Account/@participant.UserId/UserAttendance">Rejestracja obecności</a><br>
+                            <a href="/Account/@participant.UserId/UserMembership">Członkostwo</a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4">Brak uczestników do wyświetlenia.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<style>
+    .page-title {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .participants-container {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .table th, .table td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .table th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+
+        .table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .table a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+            .table a:hover {
+                text-decoration: underline;
+            }
+</style>
