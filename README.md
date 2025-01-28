@@ -14,13 +14,6 @@ This is a Razor Pages web application built using C#, PostgreSQL, Entity Framewo
 - **CSS**: Used for styling and layout of the application, making the web pages visually appealing and responsive.
 - **JavaScript**: Client-side scripting language used for adding dynamic behavior and interactivity to the web pages.
 
-## Features
-
-- **User Authentication**: Users can register, log in, and manage their accounts using ASP.NET Core Identity.
-- **Data Access**: Entity Framework Core interacts with PostgreSQL, allowing CRUD (Create, Read, Update, Delete) operations on the database.
-- **Responsive Design**: The app's interface is styled with CSS to ensure it works on both desktop and mobile devices.
-- **Client-Side Interactivity**: JavaScript is used to enhance user experience by adding interactivity to the web pages (e.g., form validations, dynamic content loading).
-
 ## Getting Started
 
 To get started with this project on your local machine, follow these steps:
